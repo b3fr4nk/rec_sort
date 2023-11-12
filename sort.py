@@ -1,11 +1,25 @@
 def merge(items1, items2):
     """Merge given lists of items, each assumed to already be in sorted order,
     and return a new list containing all items in sorted order.
-    TODO: Running time: ??? Why and under what conditions?
-    TODO: Memory usage: ??? Why and under what conditions?"""
+    TODO: Running time: O(n) Why and under what conditions?
+    TODO: Memory usage: O(n) Why and under what conditions?"""
     # TODO: Repeat until one list is empty
     # TODO: Find minimum item in both lists and append it to new list
     # TODO: Append remaining items in non-empty list to new list
+    sorted_list = []
+    while len(items1) != 0 or len(items2) != 0:
+        print(len(items1), len(items2))
+        if len(items1) == 0:
+            sorted_list.append(items2.pop(0))
+        elif len(items2) == 0:
+            sorted_list.append(items1.pop(0))
+        elif items1[0] < items2[0]:
+            sorted_list.append(items1.pop(0))
+        else:
+            sorted_list.append(items2.pop(0))
+    # while len(items1) != 0 and len(items2) != 0:
+    #     if items1[0] < items2[0]
+    return sorted_list
 
 def merge_sort(items):
     """Sort given items by splitting list into two approximately equal halves,
@@ -16,6 +30,22 @@ def merge_sort(items):
     # TODO: Split items list into approximately equal halves
     # TODO: Sort each half by recursively calling merge sort
     # TODO: Merge sorted halves into one list in sorted order
+    if len(items) <= 1:
+        return items
+
+    mid = len(items) // 2
+    left = items[:mid]
+    right = items[mid:]
+
+    left = merge_sort(left)
+    right = merge_sort(right)
+
+    left.sort()
+    right.sort()
+
+    output = merge(left, right)
+    print (output)
+    return output
 
 
 def partition(items, low, high):
@@ -42,3 +72,6 @@ def quick_sort(items, low=None, high=None):
     # TODO: Check if list or range is so small it's already sorted (base case)
     # TODO: Partition items in-place around a pivot and get index of pivot
     # TODO: Sort each sublist range by recursively calling quick sort
+
+
+merge_sort([1, 3, 5, 2, 4, 9, -1])
