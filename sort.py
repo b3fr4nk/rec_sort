@@ -20,8 +20,7 @@ def merge(items1, items2):
             sorted_list.append(items1.pop(0))
         else:
             sorted_list.append(items2.pop(0))
-    # while len(items1) != 0 and len(items2) != 0:
-    #     if items1[0] < items2[0]
+
     return sorted_list
 
 def merge_sort(items):
