@@ -26,7 +26,7 @@ def merge(items1, items2):
 def merge_sort(items):
     """Sort given items by splitting list into two approximately equal halves,
     sorting each recursively, and merging results into a list in sorted order.
-    TODO: Running time: O(n logn) Why and under what conditions?
+    TODO: Running time: O(n log n) Why and under what conditions?
     every time the recursive algorithm is called there are less and less elements to sort
     TODO: Memory usage: O(n) Why and under what conditions?
     there is are temp lists created for each recursive step"""
@@ -109,8 +109,8 @@ def partition(items, low, high):
 def quick_sort(items, low=None, high=None):
     """Sort given items in place by partitioning items in range `[low...high]`
     around a pivot item and recursively sorting each remaining sublist range.
-    TODO: Best case running time: ??? Why and under what conditions?
-    TODO: Worst case running time: ??? Why and under what conditions?
+    TODO: Best case running time: O(n log n) Why and under what conditions?
+    TODO: Worst case running time: O(n) Why and under what conditions?
     TODO: Memory usage: ??? Why and under what conditions?"""
     # TODO: Check if high and low range bounds have default values (not given)
     # TODO: Check if list or range is so small it's already sorted (base case)
@@ -132,5 +132,5 @@ def quick_sort(items, low=None, high=None):
     return merge(left, right)
 
 # merge_sort([1, 3, 5, 2, 4, 9, -1])
-print(quick_sort([1, 3, 5, 2, 4, 9, 1], 0, 6))
+print(quick_sort([1, 3, 5, 2, 4, -9, 1], 0, 6))
 # print(partition([1, 3, 5, 2, 4, 9, 10], 0, 6))
